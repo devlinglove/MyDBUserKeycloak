@@ -27,7 +27,7 @@ namespace WebApplicationTokenSub.Controllers
         }
 
 
-        [Authorize]
+        [Authorize(Roles = "GUEST")]
         [Route("GetWeatherForecast2")]
         [HttpGet]
         public async Task<IActionResult> Get2()
@@ -40,7 +40,7 @@ namespace WebApplicationTokenSub.Controllers
             return Ok(content);
         }
 
-        [Authorize]
+        [Authorize(Roles = "USER")]
         [HttpGet(Name = "GetWeatherForecast")]
         public IEnumerable<WeatherForecast> Get()
         {
